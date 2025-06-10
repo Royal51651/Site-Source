@@ -11,6 +11,7 @@
     <p1>{n.value}</p1>
 </label>
 
+
 <style>
 
   .notification {
@@ -26,7 +27,7 @@
     gap: 10px;
     z-index: 200;
     box-sizing: border-box;
-    background-color: #1a1a1a;
+    background-color: #2f2f2f;
     border: 2px solid var(--main-color);
     transition: 
         opacity 500ms,

@@ -1,0 +1,54 @@
+<div class="footer">
+    <span>
+        <p1>All code written by me, George Eggers</p1>
+    </span>
+    <span>
+        <p1>Font files from DaFonts, fine-tuned with Glyphr</p1>
+    </span>
+    <span style="width: 40%;">
+        <a href="https://github.com/Royal51651">
+            <p1 class="company highlight">{"<"}</p1>
+        </a>
+        <a href="https://www.youtube.com/@RoyalCoder51651">
+            <p1 class="company highlight2">y</p1>
+        </a>
+        <a href="https://www.instagram.com/ilovecheese189">
+            <p1 class="company highlight2">c</p1>
+        </a>
+        <a href="mailto:georgeeggers682@gmail.com">
+            <p1 class="company highlight">{">"}</p1>
+        </a>
+    </span>
+
+</div>
+
+<style>
+    .footer {
+
+        display: flex;
+        box-sizing: border-box;
+        padding: 10px;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        min-width: 100vw;
+        min-height: 100px;
+        position: absolute;
+        top: calc(100% - 100px);
+        background-color: #111111;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .company {
+        font-size: 32px;
+        cursor: pointer;
+        font-family: "company";
+    }
+    span {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+</style>

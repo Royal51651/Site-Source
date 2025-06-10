@@ -1,30 +1,73 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: monospace, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   --font-size-med: 24px;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  color: rgb(255, 255, 255);
+  background-color: #1a1a1a;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --main-color: #00665e;
+  --main-color: #009589;
+  --highlight-color: #e0186f;
   overflow: none;
   -ms-overflow-style: none;
   scrollbar-width: none;
-
 }
 
 @font-face {
   font-family: "icon";
   src: url('lib/icons/aristotelica.icons-light.ttf');
 }
+
+@font-face {
+  font-family: "company";
+  src: url('lib/icons/Icons2019-Regular.otf');
+}
+
+@font-face {
+  font-family: "graffiti";
+  src: url('lib/fonts/Brick.otf');
+}
+
+@font-face {
+  font-family: "odin";
+  src: url('lib/fonts/Odin.otf');
+}
+
+@font-face {
+  font-family: "old";
+  src: url('lib/fonts/CloisterBlack.ttf');
+}
+
+@font-face {
+  font-family: "impact";
+  src: url('lib/fonts/edosz.ttf');
+}
+
+@font-face {
+  font-family: "eroded";
+  src: url('lib/fonts/MindF.ttf');
+}
+
+@font-face {
+  font-family: "glitch";
+  src: url('lib/fonts/WrongDelivery.ttf');
+}
+
+i {
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
 
 .icon {
   font-family: "icon";
@@ -44,6 +87,17 @@
   color: var(--main-color);
 }
 
+.highlight2 {
+  color: white;
+  transition:
+    color 250ms ease  
+  ;
+}
+
+.highlight2:hover {
+  color: var(--highlight-color);
+}
+
 .row {
   width: 100%;
   display: flex;
@@ -57,11 +111,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2em;
 }
 
 #app {
@@ -78,7 +131,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #2f2f2f;
   cursor: pointer;
   transition: border-color 0.25s;
 }
