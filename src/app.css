@@ -18,6 +18,8 @@
   overflow: none;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 @font-face {
@@ -118,10 +120,11 @@ h1 {
 }
 
 #app {
-  justify-content: center;
-  align-items: center;
   text-align: center;
   width: 100vw;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 button {

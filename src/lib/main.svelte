@@ -6,7 +6,8 @@
     import { onMount } from "svelte";
     let header = null;
     let headerData = $state("");
-    let font = $state("")
+    let font = $state("");
+    let carosuelIndex = $state(0);
     let fonts = ["", "odin", "impact", "glitch", "graffiti", "eroded", "old"];
     let fontIndex = 0;
     function rand(min, max) {
@@ -22,6 +23,17 @@
             await pause(100);
         }
     }
+
+    const forward = () => {
+        carosuelIndex++;
+        if(carosuelIndex >= 5){
+            carosuelIndex = 0;
+        }
+    }
+
+    setInterval(() => {
+        forward();
+    }, 5000);
 
     setInterval(async () => {
         for(let i = headerData.length - 1; i >= 0; i--){
@@ -59,20 +71,36 @@
         window.addEventListener('mousemove', mouse_monitor);
     });
 
+    const calcPos = (pos) => {
+        if(carosuelIndex == pos){
+            return 0;
+        } else if (carosuelIndex == pos - 1 || carosuelIndex == 4 && pos == 0){
+            return -100;
+        } else {
+            return 100;
+        }
+    }
+
+
 </script>
 
 <Menu />
 <div class="row typeWriter">
     <h1 id="header" class="headerText"><i style="font-family: {font};">{headerData}</i>_</h1>
 </div>
-<div class="row" style='min-height: 50vh;'>
+<div class="row" style='min-height: 25vh;'>
     <div class="textRow">
         <p1>Hi! Im George Eggers, and I like <i style="color: var(--main-color);">Computer Science</i> and <i style="color: var(--highlight-color);">Music.</i> I am currently a student at <i style="color: var(--highlight-color)">Stephen Decatur High School,</i> and I take <i style="color: var(--main-color);">Computer Science</i> classes at <i style="color: var(--main-color)">Worcester County Technical High School</i></p1>
     </div>
 </div>
-<div class="row scroll" style="min-height: 50vh;">
-
-</div>
+<button id="forward" style="position: fixed; visibility: hidden;" onclick={forward}>Forward</button>
+<label for="forward" class="row scroll" style="min-height: 400px;">
+    <img style="transform: translateX({calcPos(0)}vw); opacity: {carosuelIndex == 0 ? 1 : 0}" src="src/assets/placeholder.png" alt="placeholder">
+    <img style="transform: translateX({calcPos(1)}vw); opacity: {carosuelIndex == 1 ? 1 : 0}" src="src/assets/placeholder.png" alt="placeholder">
+    <img style="transform: translateX({calcPos(2)}vw); opacity: {carosuelIndex == 2 ? 1 : 0}" src="src/assets/placeholder.png" alt="placeholder">
+    <img style="transform: translateX({calcPos(3)}vw); opacity: {carosuelIndex == 3 ? 1 : 0}" src="src/assets/placeholder.png" alt="placeholder">
+    <img style="transform: translateX({calcPos(4)}vw); opacity: {carosuelIndex == 4 ? 1 : 0}" src="src/assets/placeholder.png" alt="placeholder">
+</label>
 <Footer />
 
 <style>
@@ -87,8 +115,28 @@
         font-size: 4em;
     }
 
+    .hidden {
+        opacity: 0;
+    }
+
     .scroll {
-        background-color: white;
+        background-color: #111111;
+        display: flex;
+        padding: 10px;
+        box-sizing: border-box;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .scroll img {
+        position: absolute;
+        width: min(80%, 500px);
+        max-height: 300px;
+        transition:
+            transform 2s ease,
+            opacity 2s ease
+        ;
     }
 
     p1 {

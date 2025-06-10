@@ -27,17 +27,16 @@
 
         display: flex;
         box-sizing: border-box;
-        padding: 10px;
+        padding: 20px;
         align-items: center;
         justify-content: center;
         width: 100vw;
         min-width: 100vw;
         min-height: 100px;
-        position: absolute;
-        top: calc(100% - 100px);
-        background-color: #111111;
+        background-color: black;
         flex-direction: column;
         gap: 20px;
+        margin-top: auto;
     }
 
     .company {
