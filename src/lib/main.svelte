@@ -33,7 +33,7 @@
 
     setInterval(() => {
         forward();
-    }, 5000);
+    }, 7000);
 
     setInterval(async () => {
         for(let i = headerData.length - 1; i >= 0; i--){
@@ -60,11 +60,7 @@
         const percent = (e.pageX / window.innerWidth * 100).toFixed(2);
         header.style.backgroundImage = `linear-gradient(90deg, var(--highlight-color), var(--main-color) ${percent}%)`;
     };
-
-    window.onload = function() {
-
-    };
-
+    
     onMount(() => {
         header = document.getElementById('header');
         init();
@@ -88,19 +84,20 @@
 <div class="row typeWriter">
     <h1 id="header" class="headerText"><i style="font-family: {font};">{headerData}</i>_</h1>
 </div>
-<div class="row" style='min-height: 25vh;'>
+<div class="row" style='min-height: 100px'>
     <div class="textRow">
         <p1>Hi! Im George Eggers, and I like <i style="color: var(--main-color);">Computer Science</i> and <i style="color: var(--highlight-color);">Music.</i> I am currently a student at <i style="color: var(--highlight-color)">Stephen Decatur High School,</i> and I take <i style="color: var(--main-color);">Computer Science</i> classes at <i style="color: var(--main-color)">Worcester County Technical High School</i></p1>
     </div>
 </div>
 <button id="forward" style="position: fixed; visibility: hidden;" onclick={forward}>Forward</button>
 <label for="forward" class="row scroll" style="min-height: 400px;">
-    <img style="transform: translateX({calcPos(0)}vw); opacity: {carosuelIndex == 0 ? 1 : 0}" src="src/assets/placeholder.png" alt="placeholder">
-    <img style="transform: translateX({calcPos(1)}vw); opacity: {carosuelIndex == 1 ? 1 : 0}" src="src/assets/placeholder.png" alt="placeholder">
-    <img style="transform: translateX({calcPos(2)}vw); opacity: {carosuelIndex == 2 ? 1 : 0}" src="src/assets/placeholder.png" alt="placeholder">
-    <img style="transform: translateX({calcPos(3)}vw); opacity: {carosuelIndex == 3 ? 1 : 0}" src="src/assets/placeholder.png" alt="placeholder">
-    <img style="transform: translateX({calcPos(4)}vw); opacity: {carosuelIndex == 4 ? 1 : 0}" src="src/assets/placeholder.png" alt="placeholder">
+    <img style="transform: translateX({calcPos(0)}vw); opacity: {carosuelIndex == 0 ? 1 : 0}" src="src/assets/SU_comp.jpg" alt="placeholder">
+    <img style="transform: translateX({calcPos(1)}vw); opacity: {carosuelIndex == 1 ? 1 : 0}" src="src/assets/cookin_up.jpg" alt="placeholder">
+    <img style="transform: translateX({calcPos(2)}vw); opacity: {carosuelIndex == 2 ? 1 : 0}" src="src/assets/number1.jpg" alt="placeholder">
+    <img style="transform: translateX({calcPos(3)}vw); opacity: {carosuelIndex == 3 ? 1 : 0}" src="src/assets/first_place.jpg" alt="placeholder">
+    <img style="transform: translateX({calcPos(4)}vw); opacity: {carosuelIndex == 4 ? 1 : 0}" src="src/assets/idk_we_hustelers.jpg" alt="placeholder">
 </label>
+
 <Footer />
 
 <style>
@@ -115,12 +112,7 @@
         font-size: 4em;
     }
 
-    .hidden {
-        opacity: 0;
-    }
-
     .scroll {
-        background-color: #111111;
         display: flex;
         padding: 10px;
         box-sizing: border-box;
@@ -131,8 +123,8 @@
 
     .scroll img {
         position: absolute;
-        width: min(80%, 500px);
-        max-height: 300px;
+        max-width: min(80%, 600px);
+        max-height: 350px;
         transition:
             transform 2s ease,
             opacity 2s ease

@@ -1,10 +1,10 @@
 import Main from "./lib/main.svelte"
 import Aboutme from "./lib/aboutme.svelte"
-import Comps from "./lib/comps.svelte"
 import Projects from "./lib/projects.svelte"
+import Comps from "./lib/comps.svelte"
 export const routes = {
     '/': Main,
     "/about": Aboutme,
-    "/comps": Comps,
+    "/comp": Comps,
     "/projects": Projects
 }

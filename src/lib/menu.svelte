@@ -10,7 +10,7 @@ H
 <div style="position: fixed; visibility: hidden">
     <button id="goHome" onclick={() => {push("/")}}>Home</button>
     <button id="goAbout" onclick={() => {push("/about")}}>About Me</button>
-    <button id="goComp" onclick={() => {push("/comps")}}>Competitions</button>
+    <button id="goComp" onclick={() => {push("/comp")}}>Competitions</button>
     <button id="goProj" onclick={() => {push("/projects")}}>Competitions</button>
 
 </div>
@@ -62,6 +62,7 @@ H
         position: fixed;
         left: calc(100vw - 90px);
         top: 1vw;
+        z-index: 100;
     }
 
     .controlBar.true {
