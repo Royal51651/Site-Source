@@ -100,12 +100,26 @@
 
     const calcPos = (pos) => {
         if(carosuelIndex == pos){
-            return 0;
+            return "0vw";
         } else if (carosuelIndex == pos - 1 || carosuelIndex == 3 && pos == 0){
-            return -50;
+            return "-500px";
         } else {
-            return 50;
+            return "500px";
         }
+    }
+
+    const calcStyle = (pos) => {
+        let sty = "";
+        if(carosuelIndex == pos){
+            sty += "scale: 1; opacity: 1; z-index: 2;";
+        } else if (carosuelIndex == pos - 1 || carosuelIndex == 3 && pos == 0){
+            sty += "scale: 0.8; opacity: 0.2; z-index: 1; transform: translateX(-400px);";
+        } else if (carosuelIndex == pos + 1 || carosuelIndex == 0 && pos == 3) {
+            sty += "scale: 0.8; opacity: 0.2; z-index: 1; transform: translateX(400px);";
+        } else {
+            sty += "opacity: 0; z-index: 0; transform: translateX(-400px); scale: 0;";
+        }
+        return sty;
     }
 </script>
 <Menu />
@@ -114,13 +128,13 @@
     <h1 id="header" style="text-align: left" class="headerText">{headerData}_</h1>
 </div>
 <button id="forward" style="position: fixed; visibility: hidden;" onclick={forward}>Forward</button>
-<label for="forward" class="row scroll" style="min-height: 400px;">
-    <img style="transform: translateX({calcPos(0)}vw); opacity: {carosuelIndex == 0 ? 1 : 0.5}" src="src/assets/aidiot.png" alt="placeholder">
-    <img style="transform: translateX({calcPos(1)}vw); opacity: {carosuelIndex == 1 ? 1 : 0.5}" src="src/assets/uplink.png" alt="placeholder">
-    <img style="transform: translateX({calcPos(2)}vw); opacity: {carosuelIndex == 2 ? 1 : 0.5}" src="src/assets/conifer.png" alt="placeholder">
-    <img style="transform: translateX({calcPos(3)}vw); opacity: {carosuelIndex == 3 ? 1 : 0.5}" src="src/assets/simplecalc.png" alt="placeholder">
+<label for="forward" class="row scroll">
+    <img style="{calcStyle(0)}" src="src/assets/aidiot.png" alt="placeholder">
+    <img style="{calcStyle(1)}" src="src/assets/uplink.png" alt="placeholder">
+    <img style="{calcStyle(2)}" src="src/assets/conifer.png" alt="placeholder">
+    <img style="{calcStyle(3)}" src="src/assets/simplecalc.png" alt="placeholder">
 </label>
-<div class="row" style="min-height: 260px; background-color: #111111;">
+<div class="row textRow" style="min-height: 300px; background-color: #111111;">
     <p1 style="opacity: {splashOpacity}">{description}</p1>
     <a style="opacity: {splashOpacity}" href="{link}">{link}</a>
 </div>
@@ -138,40 +152,45 @@
     }
 
     .scroll {
-        background-color: #111111;
         display: flex;
         padding: 10px;
         box-sizing: border-box;
         justify-content: center;
         align-items: center;
         flex-direction: row;
+        min-height: 400px;
+    }
+
+    .textRow {
+       text-align: left;
+       padding-left: 50px;
+       padding-right: 50px;
+    }
+
+    h1 {
+        width: auto;
+        max-width: 700px;
     }
 
     .scroll img {
         position: absolute;
-        max-width: min(80%, 600px);
         max-height: 350px;
+        max-width: min(80%, 600px);
         transition:
             transform 2s ease,
-            opacity 2s ease
+            opacity 250ms ease,
+            scale 2s ease
         ;
-    }
-
-    .container {
-        flex-direction: row;
-        display: flex;
-        justify-content: space-between;
     }
 
     p1, a {
         text-align: left;
-        font-size: 16px;
-        transition: opacity 500ms ease;
+        transition: opacity 250ms ease;
+        font-size: 20px;
     }
 
     a {
         cursor: pointer;
-        font-size: 20px;
         color: var(--main-color);
     }
     .textRow {
@@ -182,5 +201,36 @@
         place-content: center;
         min-height: 140px;
         display: flex;
+    }
+
+    @media screen and (min-width: 687px){
+
+        .scroll img {
+            max-width: min(80%, 800px);
+            max-height: 450px;
+        }
+
+        .scroll {
+            min-height: 500px;
+        }
+
+        p1, a {
+            font-size: 24px;
+        }
+    }
+    @media screen and (min-width: 1200px){
+
+        .scroll img {
+            max-width: min(80%, 1000px);
+            max-height: 500px;
+        }
+
+        .scroll {
+            min-height: 600px;
+        }
+
+        p1, a {
+            font-size: 30px;
+        }
     }
 </style>

@@ -58,9 +58,9 @@ H
     }
 
     .toggle {
-        font-size: 32px;
+        font-size: 50px;
         position: fixed;
-        left: calc(100vw - 90px);
+        left: calc(100vw - 150px);
         top: 1vw;
         z-index: 100;
     }

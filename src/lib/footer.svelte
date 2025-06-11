@@ -3,7 +3,7 @@
         <p1>All code written by me, George Eggers</p1>
     </span>
     <span>
-        <p1>Font files from DaFonts, fine-tuned with Glyphr</p1>
+        <p1>Font files from DaFonts, fine-tuned with Glyphr Studio</p1>
     </span>
     <span style="width: 40%;">
         <a href="https://github.com/Royal51651">
@@ -24,7 +24,7 @@
 
 <style>
     .footer {
-
+        font-size: 20px;
         display: flex;
         box-sizing: border-box;
         padding: 20px;
@@ -49,5 +49,18 @@
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+    }
+
+    @media screen and (min-width: 687px){
+
+        p1 {
+            font-size: 24px;
+        }
+    }
+    @media screen and (min-width: 1200px){
+
+        p1 {
+            font-size: 28px;
+        }
     }
 </style>
