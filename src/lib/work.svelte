@@ -8,24 +8,21 @@
     let splashOpacity = $state(0);
     let link = $state("https://github.com/Royal51651/AIDiot");
     let links = [
-        "https://github.com/Royal51651/AIDiot",
-        "https://github.com/Royal51651/Uplink",
-        "https://github.com/Royal51651/Conifer",
-        "https://github.com/Royal51651/Sowilo"        
+        "https://berlinmainstreet.com/farmersmarket/",
+        "https://www.taylorhousemuseum.org/",
+        "https://www.littlegreenwitchapothecary.com/"
     ]
     
     let splashTexts = [
-        "AIDiot",
-        "Uplink",
-        "Conifer",
-        "Sowilo"
+        "Berlin Farmers Market",
+        "Taylor House Museum",
+        "Little Green Witch Apothecary"    
     ]
 
     let descriptions = [
-        "AIDiot is a simple frontend for the Ollama framework. It allows anyone to run AI locally, and provides a good looking GUI with easy access to system prompts and other important things. In addition, it uses a JSON save format, allowing users to quickly save and load different system settings with ease",
-        "When I'm making music, I often have to export songs to very large .WAV files. If I want to send these songs to my phone, or any other device for that matter, I have to go through the trouble of uploading it so some LFT service. Uplink addresses that. It's a dead simple file server, offering QR codes and embedded thumbnails. In fact, it's so lightweight, that it's running on a Rasberry Pi 4, with only 4 GB of ram.",
-        "Every year, the House of Congress puts on an app development challenge, aptly named the Congressional App Challenge. Those participating are given no guidelines on what to make, other than to make it related to America. Conifer is my take on this. Conifer is a free-speech centered chat platform, which offers both a chat feature and a more standard social media-like UI. In addition, it's very easy to self-host Conifer using it's server utility, and even easier to switch between servers, letting citizens reclaim control over free speech",
-        "When I want to learn something new, I often find the best way to do so is to make an app that focuses on a specific topic. Sowilo was one of these apps. Sowilo is a local app that generates color palettes based on the most vibrant and commonly used colors in an image. By making Sowilo, I learned a lot about the HSV color space, and efficient ways to sort and classify large amounts of data"
+        "Since 2024, I've worked as the market manager for the Berlin Farmers Market. My duties include answering questions from customers and vendors alike, and setting up / tearing down the market materials",
+        "During the summer, I work for the Taylor House Museum in Berlin, Maryland. My duties include general IT work, and ensuring that all tech-related questions were answered",
+        "Since early 2020, I've beem working for the Little Green Witch Apothecary, a small tea business. I do things such as website development and maintainment, and setup / teardown during farmers markets"
     ]
 
     let description = $state(descriptions[0]);
@@ -42,7 +39,7 @@
 
     const forward = async () => {
         carosuelIndex++;
-        if(carosuelIndex >= 4){
+        if(carosuelIndex >= 3){
             carosuelIndex = 0;
         }
         splashOpacity = 0;
@@ -95,9 +92,9 @@
         let sty = "";
         if(carosuelIndex == pos){
             sty += "scale: 1; opacity: 1; z-index: 2;";
-        } else if (carosuelIndex == pos - 1 || carosuelIndex == 3 && pos == 0){
+        } else if (carosuelIndex == pos - 1 || carosuelIndex == 2 && pos == 0){
             sty += "scale: 0.7; opacity: 0.3; z-index: 1; transform: translateX(-400px);";
-        } else if (carosuelIndex == pos + 1 || carosuelIndex == 0 && pos == 3) {
+        } else if (carosuelIndex == pos + 1 || carosuelIndex == 0 && pos == 2) {
             sty += "scale: 0.7; opacity: 0.3; z-index: 1; transform: translateX(400px);";
         } else {
             sty += "opacity: 0; z-index: 0; transform: translateX(-400px); scale: 0;";
@@ -112,10 +109,9 @@
 </div>
 <button id="forward" style="position: fixed; visibility: hidden;" onclick={forward}>Forward</button>
 <label for="forward" class="row scroll">
-    <img style="{calcStyle(0)}" src="src/assets/aidiot.png" alt="placeholder">
-    <img style="{calcStyle(1)}" src="src/assets/uplink.png" alt="placeholder">
-    <img style="{calcStyle(2)}" src="src/assets/conifer.png" alt="placeholder">
-    <img style="{calcStyle(3)}" src="src/assets/sowilo.png" alt="placeholder">
+    <img style="{calcStyle(0)}" src="src/assets/berlin_fm.webp" alt="placeholder">
+    <img style="{calcStyle(1)}" src="src/assets/taylor_house.jpg" alt="placeholder">
+    <img style="{calcStyle(2)}" src="src/assets/lgwa_logo.jpg" alt="placeholder">
 </label>
 <div class="row textRow" style="min-height: 300px; background-color: #111111;">
     <p1 style="opacity: {splashOpacity}">{description}</p1>

@@ -24,7 +24,7 @@
 
 <style>
     .footer {
-        font-size: 20px;
+        font-size: 16px;
         display: flex;
         box-sizing: border-box;
         padding: 20px;
@@ -54,13 +54,13 @@
     @media screen and (min-width: 687px){
 
         p1 {
-            font-size: 24px;
+            font-size: 20px;
         }
     }
     @media screen and (min-width: 1200px){
 
         p1 {
-            font-size: 28px;
+            font-size: 24px;
         }
     }
 </style>

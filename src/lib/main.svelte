@@ -95,7 +95,7 @@
     </div>
 </div>
 <button id="forward" style="position: fixed; visibility: hidden;" onclick={forward}>Forward</button>
-<label for="forward" class="row scroll">
+<label for="forward" class="row scroll" style="width: 100vw; overflow-x: hidden;">
     <img style="{calcStyle(0)}" src="src/assets/SU_comp.jpg" alt="placeholder">
     <img style="{calcStyle(1)}" src="src/assets/cookin_up.jpg" alt="placeholder">
     <img style="{calcStyle(2)}" src="src/assets/number1.jpg" alt="placeholder">
@@ -125,6 +125,8 @@
         align-items: center;
         flex-direction: row;
         min-height: 450px;
+        overflow-x: hidden;
+        position: relative;
     }
 
     h1 {
