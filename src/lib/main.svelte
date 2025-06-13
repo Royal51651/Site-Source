@@ -11,6 +11,7 @@
     let numOfImages = 5;
     let fonts = ["", "odin", "impact", "glitch", "graffiti", "eroded", "old"];
     let fontIndex = 0;
+    let scrolled = $state(false);
     function rand(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
@@ -30,11 +31,15 @@
         if(carosuelIndex >= 5){
             carosuelIndex = 0;
         }
+        scrolled = true;
     }
 
     setInterval(() => {
-        forward();
-    }, 10000);
+        if(!scrolled){
+            forward();
+        }
+        scrolled = false;
+    }, 5000);
 
     setInterval(async () => {
         for(let i = headerData.length - 1; i >= 0; i--){

@@ -7,13 +7,14 @@
     let carosuelIndex = $state(0);
     let splashOpacity = $state(0);
     let link = $state("https://github.com/Royal51651/AIDiot");
+    let scrolled = $state(false);
     let links = [
         "https://github.com/Royal51651/AIDiot",
         "https://github.com/Royal51651/Uplink",
         "https://github.com/Royal51651/Conifer",
         "https://github.com/Royal51651/Sowilo"        
     ]
-    
+
     let splashTexts = [
         "AIDiot",
         "Uplink",
@@ -70,11 +71,15 @@
                 break;
             }
         }
+        scrolled = true;
     }
 
     setInterval(() => {
-        forward();
-    }, 20000);
+        if(!scrolled){
+            forward();
+        }
+        scrolled = true;
+    }, 15000);
 
     const pause = (time) => {
         return new Promise(resolve => setTimeout(resolve, time));

@@ -6,7 +6,8 @@
     let headerData = $state("");
     let carosuelIndex = $state(0);
     let splashOpacity = $state(0);
-    let link = $state("https://github.com/Royal51651/AIDiot");
+    let scrolled = $state(false);
+    let link = $state("https://berlinmainstreet.com/farmersmarket/");
     let links = [
         "https://berlinmainstreet.com/farmersmarket/",
         "https://www.taylorhousemuseum.org/",
@@ -22,7 +23,7 @@
     let descriptions = [
         "Since 2024, I've worked as the market manager for the Berlin Farmers Market. My duties include answering questions from customers and vendors alike, and setting up / tearing down the market materials",
         "During the summer, I work for the Taylor House Museum in Berlin, Maryland. My duties include general IT work, and ensuring that all tech-related questions were answered",
-        "Since early 2020, I've beem working for the Little Green Witch Apothecary, a small tea business. I do things such as website development and maintainment, and setup / teardown during farmers markets"
+        "Since early 2020, I've beem working for the Little Green Witch Apothecary, a small tea business. I do things such as website development and maintenance, and setup / teardown during farmers markets"
     ]
 
     let description = $state(descriptions[0]);
@@ -67,11 +68,15 @@
                 break;
             }
         }
+        scrolled = true;
     }
 
     setInterval(() => {
-        forward();
-    }, 20000);
+        if(!scrolled){
+            forward();
+        }
+        scrolled = false;
+    }, 10000);
 
     const pause = (time) => {
         return new Promise(resolve => setTimeout(resolve, time));
@@ -149,8 +154,8 @@
 
     h1 {
         width: auto;
-        max-width: 700px;
-        font-size: 3em;
+        max-width: 90%;
+        font-size: 2em;
     }
 
     .scroll img {
@@ -193,7 +198,7 @@
         }
 
         h1 {
-            font-size: 4em;
+            font-size: 3em;
         }
 
         .scroll {
@@ -213,6 +218,10 @@
 
         .scroll {
             min-height: 600px;
+        }
+
+        h1 {
+            font-size: 4em;
         }
 
         p1, a {
